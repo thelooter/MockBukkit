@@ -10,8 +10,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-#        with:
-#          token: ${{ secrets.BUILD_TOKEN }}
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
 
       - name: Get merged pull request
         uses: actions-ecosystem/action-get-merged-pull-request@v1.0.1
@@ -67,3 +67,4 @@ jobs:
         with:
           tag: ${{ steps.bump-semver.outputs.new_version }}
           message: '${{ steps.bump-semver.outputs.new_version }}: PR #${{ env.pr_number }} - ${{ steps.get-pr-details.outputs.title }}\n\n${{ steps.get-pr-details.outputs.body }}\n\nCommit ID: ${{ env.commit_id }}'
+
